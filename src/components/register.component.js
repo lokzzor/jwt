@@ -55,7 +55,7 @@ export default class Register extends Component {
     this.onChangePassword = this.onChangePassword.bind(this);
 
     this.state = {
-      username: "",
+      person_name: "",
       email: "",
       password: "",
       successful: false,
@@ -65,7 +65,7 @@ export default class Register extends Component {
 
   onChangeUsername(e) {
     this.setState({
-      username: e.target.value
+      person_name: e.target.value
     });
   }
 
@@ -93,7 +93,7 @@ export default class Register extends Component {
 
     if (this.checkBtn.context._errors.length === 0) {
       AuthService.register(
-        this.state.username,
+        this.state.person_name,
         this.state.email,
         this.state.password
       ).then(
@@ -139,12 +139,12 @@ export default class Register extends Component {
             {!this.state.successful && (
               <div>
                 <div className="form-group">
-                  <label htmlFor="username">Username</label>
+                  <label htmlFor="person_name">Username</label>
                   <Input
                     type="text"
                     className="form-control"
-                    name="username"
-                    value={this.state.username}
+                    name="person_name"
+                    value={this.state.person_name}
                     onChange={this.onChangeUsername}
                     validations={[required, vusername]}
                   />
